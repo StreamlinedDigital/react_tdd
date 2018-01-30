@@ -48,6 +48,7 @@ describe('App', () => {
   })
 
   describe('when clicking the `add-gift` button', () => {
+    const id = 1
     // beforeEach runs before each test will run
     beforeEach(() => {
       // Here we want to simulate a click event before each of the tests in this group runs
@@ -62,13 +63,32 @@ describe('App', () => {
     it('adds a new gift to `state`', () => {
       // Enzyme has a find method to find a class/component/tag inside of the compoents it rendering
       // You are also able to simulate a click event with enzyme
-      expect(app.state().gifts).toEqual([{ id: 1 }])
+      expect(app.state().gifts).toEqual([{ id }])
     })
 
     it('adds a new gift to the rendered list', () => {
       //after clicking the add button
       // we are expecting the gift list to have one child in it
       expect(app.find('.gift-list').children().length).toEqual(1)
+    })
+
+    it('creates a gift component', () => {
+      // Looking for Gift component
+      expect(
+        app
+          .find('.gift-list')
+          .find('Gift')
+          .exists()
+      ).toBe(true)
+    })
+
+    describe('and the user wants to remove the added gift', () => {
+      beforeEach(() => {
+        app.instance().removeGift(id)
+      })
+      it('removes the gift from state', () => {
+        expect(app.state().gifts).toEqual([])
+      })
     })
   })
 })
