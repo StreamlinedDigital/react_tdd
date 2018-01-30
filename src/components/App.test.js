@@ -30,5 +30,10 @@ it('renders correctly', () => {
   // app component meet certain conditions
   // "expect" takes one argument: The piece of code you want to test (i.e a component, a number, a function)
   // "expect" has a lot of different methods to test against, "toMatchSnapshot()" is one of those methods
+
+  // toMatchShapshot() keeps a recorded history of your react component
+  // every time a change is made in your app the snapshot will update and make sure previous snapshots match the new snapshot
+  // This is good because there are times when a component changes and you are unaware which can cause errors
+
   expect(app).toMatchSnapshot()
 })
