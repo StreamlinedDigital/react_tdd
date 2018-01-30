@@ -4,12 +4,12 @@
 
 import React from 'react'
 
-// Enzyme is a helper library form jest.
+// Enzyme is a helper library from jest.
 // It lets you do things like mock data for a test, recreate a dom event (i.e a click event)
 // and it lets you render react components
 
-// Shallow lets you render a react component, but only that component any child components the tag will just get
-// rendered and nothing else.  Hence the work "Shallow"
+// Shallow lets you render a react component, but only that component, any child components the tag (i.e <Tag />) will just get
+// rendered and nothing else.  Hence the word "Shallow"
 import { shallow } from 'enzyme'
 
 import App from './App'
@@ -20,12 +20,11 @@ const app = shallow(<App />)
 
 // A unit test is one test that checks a very small piece of behaviour on the app for proper behaviour.
 
-// Check to see if the app component renders correctly
-
 // "It" is a Jest global function, needs two parameters:
 // - a description of the test
 // - a function to run the test
 
+// Checking to see if the app component renders correctly
 it('renders correctly', () => {
   // "expect", a Jest global function, allows us to check that parts of the rendered
   // app component meet certain conditions
