@@ -37,3 +37,19 @@ it('renders correctly', () => {
 
   expect(app).toMatchSnapshot()
 })
+
+it('initializes the `state` with an empty list of gifts', () => {
+  // Exepct inside of <App /> for its state
+  // to have a gifts property that is equal to an empty array
+  expect(app.state().gifts).toEqual([])
+})
+
+it('adds a new gift to `state` when clicking the `add gift` button', () => {
+  // Enzyme has a find method to find a class/component/tag inside of the compoents it rendering
+  // You are also able to simulate a click event with enzyme
+
+  // Click!!
+  app.find('.btn-add').simulate('click')
+
+  expect(app.state().gifts).toEqual([{ id: 1 }])
+})
